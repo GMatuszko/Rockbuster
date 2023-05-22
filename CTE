@@ -1,0 +1,16 @@
+# This CTE calculate avg amount paid by top 5 Rockbuster's customers in top 10 cities
+WITH total_amount_payed_CTE (customer_id, first_name, last_name, city, country, total_payment) AS
+(SELECT A. customer_id, A.first_name, A. last_name, C. city, D. country, 
+SUM (E. amount) AS total_payment
+FROM customer A
+INNER JOIN adress B ON A.address_id = B.address_id
+INNER JOIN city C ON B.city_id = C.city_id
+INNER JOIN country D ON C.country_id = D.country_id
+INNER JOIN payment E ON A.customer_id = E.customer_id
+WHERE city IN ('Aurora', 'Acura', 'Citrus Heightss', 'Iwaki', 'Ambatur',
+'Shanwei', 'So Leopoldo', 'Teboksary', 'Tianjin', 'Cianjur')
+GROUP BY D.country, C.city, A.customer_id, first_name, last_name
+ORDER BY total_payment DESC
+LIMIT 5)
+SELECT AVG (total_payment) AS average
+FROM total_amount_payed_cte;
