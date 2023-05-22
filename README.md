@@ -7,3 +7,5 @@ The open-source data avaiable here
 http://www.postgresqltutorial.com/wp-content/uploads/2019/05/dvdrental.zip
 # Postgre SQL Database
 https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
+# Tableau Vizzes
+https://public.tableau.com/app/profile/gabriela.matuszko
